@@ -15,6 +15,7 @@ import br.edu.unis.listadetarefas.model.TarefaDAO;
 public class FormularioTarefaActivity extends AppCompatActivity {
 
     EditText editTituloTarefa;
+    EditText editDescricaoTarefa;
     Button btnAdicionar;
     final static TarefaDAO dao = new TarefaDAO();
 
@@ -40,12 +41,14 @@ public class FormularioTarefaActivity extends AppCompatActivity {
 
     private void carregarWidgets() {
         editTituloTarefa = findViewById(R.id.edit_add_titulo_tarefa);
+        editDescricaoTarefa = findViewById(R.id.edit_add_descricao_tarefa);
         btnAdicionar = findViewById(R.id.btn_add_tarefa);
     }
 
     private void salvarTarefa() {
         dao.salvar(new Tarefa(
-                editTituloTarefa.getText().toString()
+                editTituloTarefa.getText().toString(),
+                editDescricaoTarefa.getText().toString()
         ));
 
         Toast.makeText(
